@@ -1,0 +1,10 @@
+.main {
+    box-sizing: border-box;
+    margin-top: 40px;
+    border-radius: 9px;
+    background-color: rgba(84, 122, 152, 0.3);
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
