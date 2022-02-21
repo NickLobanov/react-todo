@@ -2,14 +2,13 @@ import React from "react";
 import './main.css'
 import Card from "../card/card";
 
-function Main({todo}) {
+function Main({todo, checkedHandle}) {
 
-    console.log(todo)
     return (
         <div className="main">
             {
                 todo.map(item => (
-                    <Card key={item.id} title={item.title} checked={item.completed}/>
+                    <Card key={item.id} item={item} checkedHandle={checkedHandle}/>
                 ))
             }
         </div>
