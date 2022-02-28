@@ -1,0 +1,37 @@
+.form {
+    box-sizing: border-box;
+    width: 600px;
+    background-color: black;
+    border-radius: 9px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.form__title {
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 25px
+}
+.form__label {
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin: 0
+}
+.form__input {
+    padding: 7px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.form__select {
+    display: block;
+    padding: 7px;
+    border-radius: 7px;
+    
+}

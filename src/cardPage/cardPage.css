@@ -49,6 +49,14 @@
     background-color: green;  
 }
 
+.todo__comment {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
 .todo__container {
     position: absolute;
     top: 25px;
