@@ -1,21 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 import './cardPage.css'
-import { useParams, useNavigate, Link } from "react-router-dom";
-import Edit from '../images/edit.svg';
-import Delete from '../images/delete.svg'
+import { useParams, useNavigate } from "react-router-dom";
+import Edit from '../../images/edit.svg';
+import Delete from '../../images/delete.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteTodo } from '../../actions'
 
 
-function CardPage({todoList, deleteItem, openEditModal}) {
+function CardPage({openEditModal}) {
 
     let {cardId} = useParams()
     let navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const {todoList} = useSelector(state => ({
+        todoList: state.todoList.todoList
+    }))
 
     const item = todoList.find(elem => {
         return elem.id == cardId
     })
 
     function handleDeleteClick() {
-        deleteItem(item.id)
+        dispatch(deleteTodo(item.id))
         navigate('/')
     }
 

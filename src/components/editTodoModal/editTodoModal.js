@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import './editTodoModal.css';
 import {useLocation} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {patchTodo} from '../../actions'
 
-function EditTodoModal({onClose, editHandle}) {
+function EditTodoModal({onClose}) {
 
     let location = useLocation()
+    const dispatch = useDispatch()
 
     const [title, setTitle] = useState('')
     const [comment, setComment] = useState('')
@@ -12,13 +15,14 @@ function EditTodoModal({onClose, editHandle}) {
 
     function submitForm(e) {
         e.preventDefault()
-        console.log(location)
-        editHandle({
-            id: location.pathname.replace(/[^0-9]/g,""),
-            title: title,
-            completed: status,
-            comment: comment
-        })
+        dispatch(patchTodo(
+            {
+                id: location.pathname.replace(/[^0-9]/g,""),
+                title: title,
+                completed: status,
+                comment: comment
+            }
+        ))
         onClose()
         setTitle('')
         setComment('')
