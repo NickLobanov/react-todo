@@ -47,3 +47,37 @@
     background-color: rgba(84, 122, 152, 0.2);
     transition: background-color 0.5s linear;
 }
+
+.control__wrap {
+    display: flex;
+}
+
+.filter {
+    margin: 0;
+    margin-left: auto;
+    padding: 0%;
+    display: flex;
+    list-style: none;
+}
+
+.filter__item {
+    border: 1px solid white;
+    color: white;
+    margin-right: 25px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.filter__input {
+    margin: 0;
+}
+
+.filter__btn {
+    color: white;
+    background-color: transparent;
+    padding: 0 15px;
+    border: 1px solid white;
+    border-radius: 7px;
+}

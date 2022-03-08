@@ -3,6 +3,7 @@ export const DELETE_TODO = 'DELETE_TODO'
 export const PATCH_TODO = 'PATCH_TODO'
 export const ADD_TODO = 'ADD_TODO'
 export const SEARCH_INPUT = 'SEARCH_INPUT'
+export const FILTER_HANDLE = 'FILTER_HANDLE'
 
 export function getTodo() {
     return function(dispatch) {
@@ -42,5 +43,12 @@ export function searchInput(value) {
     return {
         type: SEARCH_INPUT,
         searchInputValue: value
+    }
+}
+
+export function filterHanlde(filterValue) {
+    return {
+        type: FILTER_HANDLE,
+        filterValue: filterValue
     }
 }
