@@ -2,6 +2,7 @@ export const GET_TODOS = 'GET_TODOS'
 export const DELETE_TODO = 'DELETE_TODO'
 export const PATCH_TODO = 'PATCH_TODO'
 export const ADD_TODO = 'ADD_TODO'
+export const SEARCH_INPUT = 'SEARCH_INPUT'
 
 export function getTodo() {
     return function(dispatch) {
@@ -34,5 +35,12 @@ export function addTodo(newTodo) {
     return {
         type: ADD_TODO,
         newTodo: newTodo
+    }
+}
+
+export function searchInput(value) {
+    return {
+        type: SEARCH_INPUT,
+        searchInputValue: value
     }
 }

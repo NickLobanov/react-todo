@@ -2,11 +2,13 @@ import {
     GET_TODOS,
     DELETE_TODO,
     PATCH_TODO,
-    ADD_TODO
+    ADD_TODO,
+    SEARCH_INPUT
 } from '../actions'
 
 const initialState = {
-    todoList: []
+    todoList: [],
+    searchInputValue: ''
 }
 
 export const todoReducer = (state = initialState, action) => {
@@ -24,6 +26,9 @@ export const todoReducer = (state = initialState, action) => {
             return {...state, todoList: [...state.todoList].map(item => item.id == action.editedTodo.id ?
                 action.editedTodo : 
                 item)}
+        }
+        case SEARCH_INPUT: {
+            return {...state, searchInputValue: action.searchInputValue}
         }
         default: {
             return state

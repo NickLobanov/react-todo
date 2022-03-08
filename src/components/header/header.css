@@ -8,7 +8,7 @@
 .header__wrap {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .header__link {
@@ -19,8 +19,16 @@
 
 .header__title {
     margin: 0;
-    margin-bottom: 20px;
     font-size: 42px;
+}
+
+.header__input {
+    width: 25%;
+    padding: 10px;
+    border-radius: 7px;
+    border: 0;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .header__about {
