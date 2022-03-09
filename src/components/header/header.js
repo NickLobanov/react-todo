@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './header.css'
-import {Link, useLocation} from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { searchInput, filterHanlde } from '../../actions'
 
@@ -12,6 +12,7 @@ function Header({openPopup}) {
     const dispatch = useDispatch()
 
     let location = useLocation()
+    let navigate = useNavigate()
 
     function inputHandle(e) {
         dispatch(searchInput(e.target.value))
@@ -22,6 +23,10 @@ function Header({openPopup}) {
             checkedTask: checkedTask ? checkedTask : null,
             uncheckedTask: uncheckedTask ? !uncheckedTask: null
         }))
+    }
+
+    function goBack() {
+        navigate(-1)
     }
 
     return (
@@ -36,24 +41,30 @@ function Header({openPopup}) {
             </div>
             <div className="control__wrap">
                 {
-                    location.pathname == '/' && <button className="header__btn" onClick={openPopup}>Добавить</button>
+                    location.pathname == '/' ? 
+                        <>
+                            <button className="header__btn" onClick={openPopup}>Добавить</button> 
+                            <ul className="filter">
+                                <li className="filter__item">
+                                    <label>True: <input name="checkedTask" 
+                                        className="filter__checkbox"
+                                        type="checkbox"
+                                        onClick={() => setCheckedTask(!checkedTask)}/>
+                                    </label>
+                                </li>
+                                <li className="filter__item">
+                                    <label>False: <input name="uncheckedTask"
+                                        className="filter__checkbox" 
+                                        type="checkbox"
+                                        onClick={() => setUncheckedTask(!uncheckedTask)}/></label>
+                                </li>
+                            </ul>
+                            <button className="header__btn" onClick={FilterHandle}>Фильтр</button>
+                        </>
+                    :
+                        <button className="header__btn" onClick={goBack}>Назад</button> 
                 }
-                <ul className="filter">
-                    <li className="filter__item">
-                        <label>True: <input name="checkedTask" 
-                            className="filter__input"
-                            type="checkbox"
-                            onClick={() => setCheckedTask(!checkedTask)}/>
-                        </label>
-                    </li>
-                    <li className="filter__item">
-                        <label>False: <input name="uncheckedTask"
-                            className="filter__input" 
-                            type="checkbox"
-                            onClick={() => setUncheckedTask(!uncheckedTask)}/></label>
-                    </li>
-                </ul>
-                <button className="filter__btn" onClick={FilterHandle}>Фильтр</button>
+                
             </div>
         </nav>
     )

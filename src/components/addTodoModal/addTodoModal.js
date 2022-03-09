@@ -18,9 +18,15 @@ function AddTodoModal({onClose}) {
     }
 
     return (
-        <form className="popup__content" onSubmit={popupHandle} onClick={e => e.stopPropagation()}>
-            <input className="popup__input" id='popupTodo' type='text' onChange={(e) => setTitle(e.target.value)} required />
-            <button type="submit" className="popup__btn">Сохранить</button>
+        <form className="form" onSubmit={popupHandle} onClick={e => e.stopPropagation()}>
+            <h2 className="form__title">Добавление нового Todo</h2>
+            <label className="form__label" htmlFor="popupAddTodo"> Название </label>
+            <input className="form__input" 
+                id='popupAddTodo' 
+                type='text' 
+                placeholder="Введите название"
+                onChange={(e) => setTitle(e.target.value)} required />
+            <button type="submit" className="form__btn from__btn_add">Сохранить</button>
         </form>
     )
 }

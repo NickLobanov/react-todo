@@ -30,7 +30,7 @@ function EditTodoModal({onClose}) {
     }
 
     return (
-        <form className="popup__content" onSubmit={submitForm} onClick={e => e.stopPropagation()}>
+        <form className="form" onSubmit={submitForm} onClick={e => e.stopPropagation()}>
             <h2 className="form__title">Редактирование задачи</h2>
             <label className="form__label" htmlFor="title">Название</label>
             <input className="form__input" id="title" name="title" type="text" onChange={(e) => setTitle(e.target.value)}/>
@@ -39,15 +39,15 @@ function EditTodoModal({onClose}) {
             <input className="form__input" id="comment" name="comment" type="text" onChange={(e) => setComment(e.target.value)}/>
 
             <label className="form__label" htmlFor="status">Статус</label>
-            <select className="form__select" id="status" name="status" onChange={(e) => setStatus(e.target.value)}>
+            <select className="form__input" id="status" name="status" onChange={(e) => setStatus(e.target.value)}>
                 <option value="0" selected="selected" disabled hidden>Статус задачи</option>
                 <option value="1">Завершена</option>
                 <option value="2">Не завершена</option>
                 <option value="3">Важная</option>
             </select>
-            <div>
-                <button type="submit">Сохранить</button>
-                <button type="button">Отмена</button>
+            <div className="btn__wrap">
+                <button type="submit" className="form__btn">Сохранить</button>
+                <button type="button" className="form__btn" onClick={onClose}>Отмена</button>
             </div>
         </form>
     )

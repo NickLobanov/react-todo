@@ -1,0 +1,10 @@
+.form__title_delete {
+    font-size: 42px;
+    text-align: center;
+}
+.form_delete {
+    justify-content: space-around;
+}
+.btn__wrap_delete {
+    justify-content: space-around;
+}

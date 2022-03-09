@@ -1,20 +1,5 @@
-.popup__content {
-    box-sizing: border-box;
-    width: 600px;
-    height: 350px;
-    background-color: black;
-    border-radius: 9px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.popup__input {
-    
-}
-
-.popup__btn {
-    width: 40%;
+.from__btn_add {
+    width: 50%;
     margin: 0 auto;
+    margin-top: 100px;
 }
