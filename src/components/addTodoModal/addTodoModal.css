@@ -3,3 +3,9 @@
     margin: 0 auto;
     margin-top: 100px;
 }
+
+@media screen and (max-width: 560px) {
+    .from__btn_add {
+        margin-top: 20px;
+    }
+}

@@ -15,6 +15,7 @@ function App() {
   const [addModalIsOpen, setAddModalIsOpen] = useState(false)
   const [editModalIsOpen, setEditModalIsOpen] = useState(false)
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false)
+  const [editableItem, setEditableItem] = useState(null)
 
   const dispatch = useDispatch()
 
@@ -27,7 +28,8 @@ function App() {
   function openAddModal() {
     setAddModalIsOpen(true)
   }
-  function openEditModal() {
+  function openEditModal(item) {
+    setEditableItem(item)
     setEditModalIsOpen(true)
   }
   function openDeleteModal() {
@@ -47,15 +49,28 @@ function App() {
         <Route path='/cards/:cardId' element={<CardPage openEditModal={openEditModal} openDeleteModal={openDeleteModal}/>}/>
       </Routes>
       
-      <Modal isOpen={addModalIsOpen} onClose={closePopup}>
-        <AddTodoModal onClose={closePopup}/>
-      </Modal>
-      <Modal isOpen={editModalIsOpen} onClose={closePopup}>
-        <EditTodoModal onClose={closePopup}/>
-      </Modal>
-      <Modal isOpen={deleteModalIsOpen} onClose={closePopup}>
-        <DeleteTodoModal onClose={closePopup}/>
-      </Modal>
+      {
+        addModalIsOpen &&
+          <Modal onClose={closePopup}>
+            <AddTodoModal onClose={closePopup}/>
+          </Modal>
+      }
+
+      {
+        editModalIsOpen && 
+          <Modal onClose={closePopup}>
+            <EditTodoModal onClose={closePopup} itemData={editableItem}/>
+          </Modal>
+      }
+      
+      {
+        deleteModalIsOpen && 
+          <Modal onClose={closePopup}>
+            <DeleteTodoModal onClose={closePopup}/>
+          </Modal>
+      }
+      
+      
       
     </div>
   );

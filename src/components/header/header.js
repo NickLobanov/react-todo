@@ -8,6 +8,8 @@ function Header({openPopup}) {
 
     const [checkedTask, setCheckedTask] = useState(false)
     const [uncheckedTask, setUncheckedTask] = useState(false)
+    const [inProgress, setInProgress] = useState(false)
+    const [filterActive, setFilterActive] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -21,7 +23,8 @@ function Header({openPopup}) {
     function FilterHandle() {
         dispatch(filterHanlde({
             checkedTask: checkedTask ? checkedTask : null,
-            uncheckedTask: uncheckedTask ? !uncheckedTask: null
+            uncheckedTask: uncheckedTask ? !uncheckedTask: null,
+            inProgress: inProgress ? inProgress : null
         }))
     }
 
@@ -32,7 +35,7 @@ function Header({openPopup}) {
     return (
         <nav className="header">
             <div className="header__wrap">
-                <Link to='/' className="header__link"><h1 className="header__title">My Todo List</h1></Link>
+                <Link to='/' className="header__link"><h1 className="header__title">My Todos</h1></Link>
                 <input onChange={inputHandle}
                     className="header__input" 
                     type="text" minLength="1" 
@@ -43,23 +46,39 @@ function Header({openPopup}) {
                 {
                     location.pathname == '/' ? 
                         <>
-                            <button className="header__btn" onClick={openPopup}>Добавить</button> 
-                            <ul className="filter">
-                                <li className="filter__item">
-                                    <label>True: <input name="checkedTask" 
-                                        className="filter__checkbox"
-                                        type="checkbox"
-                                        onClick={() => setCheckedTask(!checkedTask)}/>
-                                    </label>
-                                </li>
-                                <li className="filter__item">
-                                    <label>False: <input name="uncheckedTask"
-                                        className="filter__checkbox" 
-                                        type="checkbox"
-                                        onClick={() => setUncheckedTask(!uncheckedTask)}/></label>
-                                </li>
-                            </ul>
-                            <button className="header__btn" onClick={FilterHandle}>Фильтр</button>
+                            <button className="header__btn" onClick={openPopup}>Добавить</button>
+                            <div className={`filter ${filterActive && 'filter_active'}`}>
+                                <ul className="filter__list">
+                                    <li className="filter__item">
+                                        <label>Завершеные <input name="checkedTask" 
+                                            className="filter__checkbox"
+                                            type="checkbox"
+                                            onClick={() => setCheckedTask(!checkedTask)}/>
+                                        </label>
+                                    </li>
+                                    <li className="filter__item">
+                                        <label>Не завершеные <input name="uncheckedTask"
+                                            className="filter__checkbox" 
+                                            type="checkbox"
+                                            onClick={() => setUncheckedTask(!uncheckedTask)}/></label>
+                                    </li>
+                                    <li className="filter__item">
+                                        <label>В работе <input name="inProgress"
+                                            className="filter__checkbox" 
+                                            type="checkbox"
+                                            onClick={() => setInProgress(!inProgress)}/></label>
+                                    </li>
+                                </ul>
+                                <button className="header__btn header__btn_close" onClick={() => setFilterActive(false)}>Закрыть</button>
+                            </div> 
+                            
+                            {
+                                filterActive ? 
+                                <button className="header__btn" onClick={FilterHandle}>Искать</button> 
+                                :
+                                <button className="header__btn" onClick={() => setFilterActive(true)}>Фильтр</button>
+                            }
+                            
                         </>
                     :
                         <button className="header__btn" onClick={goBack}>Назад</button> 

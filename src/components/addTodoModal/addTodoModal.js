@@ -11,7 +11,7 @@ function AddTodoModal({onClose}) {
     function popupHandle(e) {
         e.preventDefault()
         dispatch(addTodo(
-            {id: Math.random() * 1000, title: title, completed: false}
+            {id: Math.floor(Math.random() * 1000), title: title, completed: false}
         ))
         onClose()
         setTitle('')

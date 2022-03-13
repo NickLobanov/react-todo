@@ -1,14 +1,14 @@
 import React from "react";
 import './modal.css'
 
-function Modal({children, onClose, isOpen}) {
+function Modal({children, onClose}) {
 
     function onClosePopup() {
         onClose()
     }
 
     return (
-        <div className={isOpen ? "popup active" : "popup"} onClick={onClosePopup}>
+        <div className="popup" onClick={onClosePopup}>
             {children}
         </div>
     )

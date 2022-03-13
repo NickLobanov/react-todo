@@ -18,14 +18,20 @@ function CardPage({openEditModal, openDeleteModal}) {
         return elem.id == cardId
     })
 
+    function openEditModalClick() {
+        openEditModal(item)
+    }
+
     return (
         <div className="todo__wrap">
             <h2 className="todo__title">{item.title}</h2>
             {item.comment && <p className="todo__comment">{item.comment}</p>}
-            {item.completed ? 
-            <span className="todo__circle todo__circle_checked">Завершена</span> : <span className="todo__circle todo__circle_unchecked">Не завершена</span>}
+            {item.completed == true ? 
+            <span className="todo__circle todo__circle_checked">Завершена</span> : 
+            item.completed == 'inProgress' ? <span className="todo__circle todo__circle_progress">В работе</span> :
+            <span className="todo__circle todo__circle_unchecked">Не завершена</span> }
             <div className="todo__container">
-                <img className="todo__btn" src={Edit} alt='Редактирование' onClick={openEditModal} />
+                <img className="todo__btn" src={Edit} alt='Редактирование' onClick={openEditModalClick} />
                 <img className="todo__btn" src={Delete} alt='Удаление' onClick={openDeleteModal}/>
             </div>
             

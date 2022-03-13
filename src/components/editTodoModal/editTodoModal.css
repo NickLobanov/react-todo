@@ -1,7 +1,6 @@
 .form {
     box-sizing: border-box;
     width: 600px;
-    min-height: 350px;
     background-color: black;
     border-radius: 9px;
     padding: 40px;
@@ -38,5 +37,17 @@
     padding: 8px 20px;
     border-radius: 7px;
     border:none
+}
+
+@media screen and (max-width: 800px) {
+    .form {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .form {
+        width: 290px;
+    }
 }
 

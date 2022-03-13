@@ -1,5 +1,12 @@
 .app {
   width: 70%;
   margin: 0 auto;
-  height: 100vh;
+  overflow: hidden;
 }
+
+@media screen and (max-width: 1250px) {
+  .app {
+    width: 90%;
+  }
+}
+
