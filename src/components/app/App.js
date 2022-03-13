@@ -7,6 +7,7 @@ import Main from '../main/main';
 import AddTodoModal from '../addTodoModal/addTodoModal';
 import CardPage from '../cardPage/cardPage';
 import Modal from '../modal/modal';
+import About from '../about/about';
 import EditTodoModal from '../editTodoModal/editTodoModal';
 import {getTodo} from '../../actions'
 import DeleteTodoModal from '../deleteTodoModal/deleteTodoModal';
@@ -45,7 +46,7 @@ function App() {
       <Header openPopup={openAddModal}/>
       <Routes>
         <Route path="/" element={<Main />}/>
-        <Route path="/about" element={<p>about</p>}/>
+        <Route path="/about" element={<About />}/>
         <Route path='/cards/:cardId' element={<CardPage openEditModal={openEditModal} openDeleteModal={openDeleteModal}/>}/>
       </Routes>
       

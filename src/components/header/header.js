@@ -24,8 +24,11 @@ function Header({openPopup}) {
         dispatch(filterHanlde({
             checkedTask: checkedTask ? checkedTask : null,
             uncheckedTask: uncheckedTask ? !uncheckedTask: null,
-            inProgress: inProgress ? inProgress : null
+            inProgress: inProgress ? 'inProgress' : null
         }))
+        setCheckedTask(false)
+        setUncheckedTask(false)
+        setInProgress(false)
     }
 
     function goBack() {
@@ -36,11 +39,18 @@ function Header({openPopup}) {
         <nav className="header">
             <div className="header__wrap">
                 <Link to='/' className="header__link"><h1 className="header__title">My Todos</h1></Link>
-                <input onChange={inputHandle}
-                    className="header__input" 
-                    type="text" minLength="1" 
-                    placeholder="Поиск по названию"/>
-                <Link to='/about' className="header__link header__about">About</Link>
+                {
+                    location.pathname == '/' &&
+                        <>
+                            <input onChange={inputHandle}
+                            className="header__input" 
+                            type="text" minLength="1" 
+                            placeholder="Поиск по названию"/>
+                            <Link to='/about' className="header__link header__about">About</Link>
+                        </>  
+                }
+                
+                
             </div>
             <div className="control__wrap">
                 {
@@ -53,20 +63,23 @@ function Header({openPopup}) {
                                         <label>Завершеные <input name="checkedTask" 
                                             className="filter__checkbox"
                                             type="checkbox"
-                                            onClick={() => setCheckedTask(!checkedTask)}/>
+                                            checked={checkedTask}
+                                            onChange={() => setCheckedTask(!checkedTask)}/>
                                         </label>
                                     </li>
                                     <li className="filter__item">
                                         <label>Не завершеные <input name="uncheckedTask"
                                             className="filter__checkbox" 
                                             type="checkbox"
-                                            onClick={() => setUncheckedTask(!uncheckedTask)}/></label>
+                                            checked={uncheckedTask}
+                                            onChange={() => setUncheckedTask(!uncheckedTask)}/></label>
                                     </li>
                                     <li className="filter__item">
                                         <label>В работе <input name="inProgress"
                                             className="filter__checkbox" 
                                             type="checkbox"
-                                            onClick={() => setInProgress(!inProgress)}/></label>
+                                            checked={inProgress}
+                                            onChange={() => setInProgress(!inProgress)}/></label>
                                     </li>
                                 </ul>
                                 <button className="header__btn header__btn_close" onClick={() => setFilterActive(false)}>Закрыть</button>

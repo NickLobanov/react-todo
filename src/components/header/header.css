@@ -60,7 +60,7 @@
     margin-left: auto;
     display: flex;
     position: relative;
-    top: 40px;
+    top: 60px;
     transition: top 0.5s ease-in-out;
 }
 .filter_active {

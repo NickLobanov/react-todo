@@ -5,19 +5,19 @@ import { useSelector } from 'react-redux'
 
 function Main() {
 
-    const {todoList, searchInputValue, checkedTaskFilter, uncheckedTaskFilter} = useSelector(state => ({
+    const {todoList, searchInputValue, checkedTaskFilter, uncheckedTaskFilter, inProgressFilter} = useSelector(state => ({
         todoList: state.todoList.todoList,
         searchInputValue: state.todoList.searchInputValue,
         checkedTaskFilter: state.todoList.checkedTaskFilter,
-        uncheckedTaskFilter: state.todoList.uncheckedTaskFilter
+        uncheckedTaskFilter: state.todoList.uncheckedTaskFilter,
+        inProgressFilter: state.todoList.inProgressFilter
     }))
-
     let filteredTodos
     
-    if (checkedTaskFilter === null && uncheckedTaskFilter === null) {
+    if (checkedTaskFilter === null && uncheckedTaskFilter === null && inProgressFilter === null) {
         filteredTodos = todoList
     } else {
-        filteredTodos = todoList.filter(item => item.completed == checkedTaskFilter || item.completed == uncheckedTaskFilter)
+        filteredTodos = todoList.filter(item => item.completed === checkedTaskFilter || item.completed === uncheckedTaskFilter || item.completed == inProgressFilter)
     }
      
     let todos = searchInputValue ? filteredTodos.filter(item => item.title.includes(searchInputValue)) : filteredTodos

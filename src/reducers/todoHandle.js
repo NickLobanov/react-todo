@@ -11,7 +11,8 @@ const initialState = {
     todoList: [],
     searchInputValue: '',
     checkedTaskFilter: null,
-    uncheckedTaskFilter: null
+    uncheckedTaskFilter: null,
+    inProgressFilter: null
 }
 
 export const todoReducer = (state = initialState, action) => {
@@ -34,7 +35,7 @@ export const todoReducer = (state = initialState, action) => {
             return {...state, searchInputValue: action.searchInputValue}
         }
         case FILTER_HANDLE: {
-            return {...state, checkedTaskFilter: action.filterValue.checkedTask, uncheckedTaskFilter: action.filterValue.uncheckedTask}
+            return {...state, checkedTaskFilter: action.filterValue.checkedTask, uncheckedTaskFilter: action.filterValue.uncheckedTask, inProgressFilter: action.filterValue.inProgress}
         }
         default: {
             return state
