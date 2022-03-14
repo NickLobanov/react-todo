@@ -45,7 +45,7 @@ function App() {
     <div className="app">
       <Header openPopup={openAddModal}/>
       <Routes>
-        <Route path="/" element={<Main />}/>
+        <Route path="/react-todo" element={<Main />}/>
         <Route path="/about" element={<About />}/>
         <Route path='/cards/:cardId' element={<CardPage openEditModal={openEditModal} openDeleteModal={openDeleteModal}/>}/>
       </Routes>
