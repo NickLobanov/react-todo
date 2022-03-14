@@ -40,7 +40,7 @@ function Header({openPopup}) {
             <div className="header__wrap">
                 <Link to='/' className="header__link"><h1 className="header__title">My Todos</h1></Link>
                 {
-                    location.pathname == '/' &&
+                    location.pathname == '/react-todo' &&
                         <>
                             <input onChange={inputHandle}
                             className="header__input" 
@@ -54,7 +54,7 @@ function Header({openPopup}) {
             </div>
             <div className="control__wrap">
                 {
-                    location.pathname == '/' ? 
+                    location.pathname == '/react-todo' ? 
                         <>
                             <button className="header__btn" onClick={openPopup}>Добавить</button>
                             <div className={`filter ${filterActive && 'filter_active'}`}>
