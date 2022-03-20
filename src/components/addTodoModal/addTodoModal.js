@@ -26,7 +26,7 @@ function AddTodoModal({onClose}) {
                 type='text' 
                 placeholder="Введите название"
                 onChange={(e) => setTitle(e.target.value)} required />
-            <button type="submit" className="form__btn from__btn_add">Сохранить</button>
+            <button type="submit" className="main__btn from__btn_add">Сохранить</button>
         </form>
     )
 }

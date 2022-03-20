@@ -46,13 +46,13 @@ function EditTodoModal({onClose, itemData}) {
             <label className="form__label" htmlFor="status">Статус</label>
             <select className="form__input" id="status" name="status" onChange={(e) => setStatus(e.target.value)}>
                 <option value="0" selected="selected" disabled hidden>Статус задачи</option>
-                <option value="true">Завершена</option>
-                <option value="false">Не завершена</option>
+                <option value="1">Завершена</option>
+                <option value="0">Не завершена</option>
                 <option value="inProgress">В работе</option>
             </select>
             <div className="btn__wrap">
-                <button type="submit" className="form__btn">Сохранить</button>
-                <button type="button" className="form__btn" onClick={onClose}>Отмена</button>
+                <button type="submit" className="main__btn">Сохранить</button>
+                <button type="button" className="main__btn" onClick={onClose}>Отмена</button>
             </div>
         </form>
     )

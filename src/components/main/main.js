@@ -17,7 +17,7 @@ function Main() {
     if (checkedTaskFilter === null && uncheckedTaskFilter === null && inProgressFilter === null) {
         filteredTodos = todoList
     } else {
-        filteredTodos = todoList.filter(item => item.completed === checkedTaskFilter || item.completed === uncheckedTaskFilter || item.completed == inProgressFilter)
+        filteredTodos = todoList.filter(item => item.completed == checkedTaskFilter || item.completed == uncheckedTaskFilter || item.completed == inProgressFilter)
     }
      
     let todos = searchInputValue ? filteredTodos.filter(item => item.title.includes(searchInputValue)) : filteredTodos

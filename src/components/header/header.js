@@ -56,7 +56,7 @@ function Header({openPopup}) {
                 {
                     location.pathname == '/react-todo/' ? 
                         <>
-                            <button className="header__btn" onClick={openPopup}>Добавить</button>
+                            <button className="main__btn" onClick={openPopup}>Добавить</button>
                             <div className={`filter ${filterActive && 'filter_active'}`}>
                                 <ul className="filter__list">
                                     <li className="filter__item">
@@ -82,19 +82,19 @@ function Header({openPopup}) {
                                             onChange={() => setInProgress(!inProgress)}/></label>
                                     </li>
                                 </ul>
-                                <button className="header__btn header__btn_close" onClick={() => setFilterActive(false)}>Закрыть</button>
+                                <button className="main__btn header__btn_close" onClick={() => setFilterActive(false)}>Закрыть</button>
                             </div> 
                             
                             {
                                 filterActive ? 
-                                <button className="header__btn" onClick={FilterHandle}>Искать</button> 
+                                <button className="main__btn" onClick={FilterHandle}>Искать</button> 
                                 :
-                                <button className="header__btn" onClick={() => setFilterActive(true)}>Фильтр</button>
+                                <button className="main__btn" onClick={() => setFilterActive(true)}>Фильтр</button>
                             }
                             
                         </>
                     :
-                        <button className="header__btn" onClick={goBack}>Назад</button> 
+                        <button className="main__btn" onClick={goBack}>Назад</button> 
                 }
                 
             </div>

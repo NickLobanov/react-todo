@@ -35,7 +35,7 @@
     font-size: 18px;
 }
 
-.header__btn {
+.main__btn {
     color: white;
     background-color: rgba(84, 122, 152, 0.3);
     border: none;
@@ -46,7 +46,7 @@
 .header__btn_close {
     margin-right: 10px;
 }
-.header__btn:hover {
+.main__btn:hover {
     background-color: rgba(84, 122, 152, 0.2);
     transition: background-color 0.5s linear;
 }
